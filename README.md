@@ -28,7 +28,7 @@ React · Vite · React Router · Google Sheets · CSS
 ```
 src/
   components/   layout, produtos, componentes de interface
-  pages/        Home, Produtos, Dúvidas
+  pages/        Home, FAQ
   services/     leitura da planilha
   styles/       cores e estilos globais
 ```
@@ -41,3 +41,5 @@ Em desenvolvimento.
 - [ ] Publicação
 
 ## Autores
+**José Fernando Brito Costa** · jfbritocosta@gmail.com
+**Lara Caroline Monteiro Maia** · laracarolinemaya@gmail.com
