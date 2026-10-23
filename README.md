@@ -41,5 +41,5 @@ Em desenvolvimento.
 - [ ] Publicação
 
 ## Autores
-**José Fernando Brito Costa** · jfbritocosta@gmail.com
+**José Fernando Brito Costa** · jfbritocosta@gmail.com  
 **Lara Caroline Monteiro Maia** · laracarolinemaya@gmail.com
