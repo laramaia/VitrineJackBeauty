@@ -1,16 +1,43 @@
-# React + Vite
+# Vitrine Digital – Mundo da Jack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma vitrine digital para uma loja de maquiagem e autocuidado, desenvolvida para um cliente real. O catálogo facilita a descoberta de produtos, enquanto as vendas continuam sendo realizadas pelo WhatsApp.
 
-Currently, two official plugins are available:
+## O problema
+A Jack vende produtos de maquiagem e autocuidado pelo WhatsApp. Quando uma cliente queria conhecer os produtos disponíveis, ela precisava enviar fotos e informações manualmente, produto por produto, em cada conversa.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Esse processo tornava o atendimento repetitivo e dificultava a visualização do catálogo completo.
 
-## React Compiler
+## A solução
+Uma vitrine digital que reúne os produtos da loja em um só lugar, permitindo que as clientes explorem o catálogo, filtrem produtos por categoria e encontrem o que procuram por meio da busca.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Ao se interessar por um produto, a cliente pode iniciar uma conversa com a Jack pelo WhatsApp, com uma mensagem pré-preenchida contendo o nome e o preço do item.
 
-## Expanding the ESLint configuration
+Assim, a cliente ganha autonomia para explorar os produtos, e a Jack reduz o trabalho repetitivo durante o atendimento.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Principais funcionalidades
+- Catálogo com todos os produtos, filtro por categoria e busca
+- Destaques e lançamentos em carrossel
+- Botão que abre o WhatsApp com o nome e o preço do produto na mensagem
+- Página de dúvidas frequentes (pagamento, entrega, troca)
+- Layout responsivo, pensado para celular e desktop
+
+## Tecnologias
+React · Vite · React Router · Google Sheets · CSS
+
+## Estrutura
+```
+src/
+  components/   layout, produtos, componentes de interface
+  pages/        Home, Produtos, Dúvidas
+  services/     leitura da planilha
+  styles/       cores e estilos globais
+```
+
+## Status
+Em desenvolvimento.
+- [x] Design no Figma (desktop e mobile)
+- [ ] Páginas e componentes
+- [ ] Integração com a planilha
+- [ ] Publicação
+
+## Autores
