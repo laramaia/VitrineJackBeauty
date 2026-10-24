@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond');
+@import url('https://fonts.googleapis.com/css2?family=Manrope');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans');
+
+.cormorant-x-lg{
+  font-family: "Cormorant Garamond";
+  font-size: 60px;
+  font-weight: 700; 
+}
+
+.cormorant-lg{
+  font-family: "Cormorant Garamond";
+  font-size: 50px;
+  font-weight: 600; 
+}
+
+.cormorant-md{
+  font-family: "Cormorant Garamond";
+  font-size: 26px;
+  font-weight: 300; 
+}
+
+.cormorant-sm{
+  font-family: "Cormorant Garamond";
+  font-size: 16px;
+  font-weight: 600; 
+}
+
+.dm-sans-lg{
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-weight: 700; 
+}
+
+.dm-sans-x-md{
+  font-family: "DM Sans";
+  font-size: 25px;
+  font-weight: 500; 
+}
+
+.dm-sans-md{
+  font-family: "DM Sans";
+  font-size: 20px;
+  font-weight: 500; 
+}
+
+.dm-sans-sm{
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-weight: 500; 
+}
+
+.manrope-lg{
+  font-family: "Manrope";
+  font-size: 25px;
+  font-weight: 800; 
+}
+
+.manrope-md{
+  font-family: "Manrope";
+  font-size: 20px;
+  font-weight: 400; 
+}
+
+.manrope-sm{
+  font-family: "Manrope";
+  font-size: 12px;
+  font-weight: 200; 
+}
