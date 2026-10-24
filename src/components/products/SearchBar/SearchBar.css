@@ -1,0 +1,16 @@
+input {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 32px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #9A9A9A;
+    background-color: #fafafa;
+}
+
+input::placeholder {
+    color: #A39491;  
+    opacity: 1;            
+}

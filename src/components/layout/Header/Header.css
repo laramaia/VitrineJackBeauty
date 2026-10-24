@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 0.7rem;
+}
+
+header .icon {
+    width: var(--icon-size-m);
+    height: var(--icon-size-m);
+}
+
+header .logo {
+    height: 70px;
+    width: auto;
+    display: block;
+}

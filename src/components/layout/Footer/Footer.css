@@ -1,0 +1,38 @@
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--gradient-soft);
+    justify-content: space-around;
+    padding: 5rem 2.5rem 1rem 2.5rem;
+    color: var(--color-text);
+    border-top: 1.5px solid var(--color-accent);
+}
+
+footer nav {
+    min-width: 200px;
+}
+
+footer nav.contacts ul {
+    list-style-type: none;
+}
+
+footer nav.contacts ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+footer .icon {
+    width: var(--icon-size-s);
+    height: var(--icon-size-s);
+}
+
+footer p {
+    width: 100%;
+    text-align: center;
+    margin-top: 7rem;
+    color: color-mix(in srgb, var(--color-text) 60%, transparent);
+    font-size: 0.9rem;
+    border-top: 1px solid #E8C9D0;
+    padding-top: 0.8rem;
+}

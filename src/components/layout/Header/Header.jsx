@@ -1,9 +1,10 @@
-import logo from '../../assets/logo.png'
-import instagramIcon from '../../assets/icons/instagram.png'
-import whatsappIcon from '../../assets/icons/whatsapp.png'
-import helpIcon from '../../assets/icons/help.png'
-import { SearchBar } from '../SearchBar'
+import logo from '../../../assets/logo.png'
+import instagramIcon from '../../../assets/icons/instagram.png'
+import whatsappIcon from '../../../assets/icons/whatsapp.png'
+import helpIcon from '../../../assets/icons/help.png'
+import { SearchBar } from '../../products/SearchBar/SearchBar'
 import { useLocation } from 'react-router-dom'
+import './Header.css'
 
 export function Header(){
     const location = useLocation();

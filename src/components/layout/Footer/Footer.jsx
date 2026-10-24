@@ -1,6 +1,7 @@
-import gmailIcon from '../../assets/icons/gmail.png'
-import instagramIcon from '../../assets/icons/instagram.png'
-import whatsappIcon from '../../assets/icons/whatsapp.png'
+import gmailIcon from '../../../assets/icons/gmail.png'
+import instagramIcon from '../../../assets/icons/instagram.png'
+import whatsappIcon from '../../../assets/icons/whatsapp.png'
+import './Footer.css'
 
 export function Footer(){
     return(
