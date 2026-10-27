@@ -7,8 +7,8 @@
 .highlights-slide {
     position: relative;          
     width: 100%;
-    max-width: 840px;
-    min-height: 360px;
+    max-width: 650px;
+    min-height: 230px;
     padding: 3rem 5rem;
     display: flex;
     align-items: center;
@@ -75,4 +75,34 @@
     border-radius: 30px;
     margin-bottom: 12px;
     font-weight: 400;
+}
+
+.highlights-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.highlights-arrow img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.highlights-arrow-prev { left: 1rem; }
+.highlights-arrow-next { right: 1rem; }
+
+.highlights-arrow-next img {
+    transform: scaleX(-1);
 }
