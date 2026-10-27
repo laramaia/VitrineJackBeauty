@@ -1,0 +1,29 @@
+.product-card-wrapper {
+  width: 100%;
+  aspect-ratio: 250 / 345;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(231, 149, 149);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.product-card-image {
+  background-color: rgb(255, 115, 115);
+  width: 100%;
+  flex: 3;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.product-card-info {
+  background-color: rgb(150, 139, 253);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  text-align: center;
+}
