@@ -5,9 +5,9 @@ export function ProductCard({ title, brand, price, image }) {
     <article className="product-card-wrapper">
       <img className="product-card-image" src={image} alt={title} />
       <div className="product-card-info">
-        <p className="cormorant-md">{title}</p>
-        <p className="manrope-sm">{brand}</p>
-        <p className="dm-sans-md">{price}</p>
+        <h3 className="dm-sans-md">{title}</h3>
+        <p className="product-card-brand manrope-sm">{brand}</p>
+        <p className="manrope-md">{price}</p>
       </div>
     </article>
   );
