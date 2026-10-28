@@ -1,0 +1,109 @@
+.highlights-carousel {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.highlights-slide {
+    position: relative;          
+    width: 100%;
+    max-width: 1350px;
+    min-height: 430px;
+    padding: 3rem 5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.highlights-slide::before,
+.highlights-slide::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+}
+
+.highlights-slide::before {
+    top: 0;
+    width: 32%;
+    aspect-ratio: 480 / 222;
+    background-image: url('../../assets/images/highlights-decor-top.png');
+}
+
+.highlights-slide::after {
+    bottom: 0;
+    width: 60%;
+    aspect-ratio: 1210 / 216;
+    background-image: url('../../assets/images/highlights-decor-bottom.png');
+}
+
+.highlights-image { z-index: 1; }
+.highlights-info  { z-index: 2; }
+
+.highlights-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
+}
+
+.highlights-info {
+    position: relative;
+    max-width: 90%;
+}
+
+.highlights-info button {
+    background-color: #DB5168;
+    color: #ffffff;
+    border-style: none;
+    padding: 10px 16px;
+    border-radius: 30px;
+    margin-top: 22px;
+}
+
+.highlights-info h4 {
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+.highlights-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.highlights-arrow img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.highlights-arrow-prev { left: 1rem; }
+.highlights-arrow-next { right: 1rem; }
+
+.highlights-arrow-next img {
+    transform: scaleX(-1);
+}
