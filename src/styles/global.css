@@ -9,7 +9,7 @@
 
 .main-banner {
     width: 100%;
-    height: clamp(250px, 40vw, 480px); 
+    height: clamp(450px, 40vw, 680px); 
     overflow: hidden;   
     display: flex;
     justify-content: center;

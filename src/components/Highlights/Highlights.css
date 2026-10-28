@@ -7,13 +7,14 @@
 .highlights-slide {
     position: relative;          
     width: 100%;
-    max-width: 650px;
-    min-height: 230px;
+    max-width: 1350px;
+    min-height: 430px;
     padding: 3rem 5rem;
     display: flex;
     align-items: center;
     border-radius: 25px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .highlights-slide::before,
