@@ -37,6 +37,7 @@
   padding: var(--shadow-room);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   align-content: start;
   gap: var(--grid-gap);
 }

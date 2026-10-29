@@ -11,7 +11,8 @@ const product = (id, title, brand, image) => ({
   image,
 });
 
-const bodySplash = (id) => product(id, "Body Splash Maracujá", "Belkit", bodySplashImg);
+const bodySplash = (id) =>
+  product(id, "Body Splash Maracujá", "Belkit", bodySplashImg);
 const lipGloss = (id) => product(id, "Lip Gloss One", "Belkit", lipGlossImg);
 const palette = (id) => product(id, "Paleta Pastel", "Belkit", paletteImg);
 const lipFruit = (id) => product(id, "Lip Fruit", "Jummyju", lipFruitImg);

@@ -9,7 +9,7 @@ export function ProductCategory({ categories }) {
   return (
     <section className="product-category-wrapper">
       <header className="product-category-header">
-        <h2 className="product-category-title dm-sans-lg">Todos os Produtos</h2>
+        <h2 className="dm-sans-lg">Todos os Produtos</h2>
 
         <nav className="product-category-nav">
           {categories.map((category) => (
