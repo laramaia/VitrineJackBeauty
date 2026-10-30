@@ -1,23 +1,15 @@
-import blushImg from '../../assets/images/blush.jpeg'
-import bodyImg from '../../assets/images/bodysplash.png'
-import lipImg from '../../assets/images/lipfruit.jpg'
-import arrowIcon from '../../assets/icons/highlights-arrow.png'
-import { useDominantColors } from '../../hooks/useDominantColors'
+import arrowIcon from '../../../assets/icons/highlights-arrow.png'
+import { useDominantColors } from '../../../hooks/useDominantColors'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { mockHighlights as products } from '../../../mocks/Mockcategories'
 import './Highlights.css'
 
-const products = [
-    { id: 1, name: "Blush Radiante", image: blushImg },
-    { id: 2, name: "Body Splash Vanilla", image: bodyImg },
-    { id: 3, name: "Lip Fruit Gloss", image: lipImg }
-]
 const images = products.map((product) => product.image)
-
 
 export function Highlights() {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const colors = useDominantColors(images)
+    const palettes = useDominantColors(images)
     const goToPrevious = () =>
         setCurrentIndex((prev) => (prev - 1 + products.length) % products.length)
     const goToNext = () =>
@@ -31,13 +23,18 @@ export function Highlights() {
     }, [])
 
     const currentProduct = products[currentIndex]
+    const palette = palettes[currentIndex]
+    const slideStyle = palette && {
+        '--slide-bg': palette.background,
+        '--slide-title': palette.titleText,
+        '--slide-text': palette.text,
+        '--slide-button': palette.button,
+        '--slide-button-text': palette.buttonText,
+    }
 
     return (
         <div className="highlights-carousel">
-            <motion.div
-                className="highlights-slide"
-                animate={{ backgroundColor: colors[currentIndex] ?? '#F9E9EC' }}
-                transition={{ duration: 0.6 }}>
+            <div className="highlights-slide" style={slideStyle}>
                 <button
                     type="button"
                     className="highlights-arrow highlights-arrow-prev"
@@ -45,10 +42,13 @@ export function Highlights() {
                     aria-label="Slide anterior">
                     <img src={arrowIcon} alt="" />
                 </button>
+
                 <div className="highlights-info">
                     <div className="highlights-description">
                         <h4>Lançamento</h4>
-                        <h3>{currentProduct.name} chegou!</h3>
+                        <h3>
+                            <span className="highlights-product-name">{currentProduct.title}</span> chegou!
+                        </h3>
                         <p>Realce a sua beleza todos os dias</p>
                     </div>
                     <button>Quero conhecer</button>
@@ -63,6 +63,7 @@ export function Highlights() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}
                 />
+
                 <button
                     type="button"
                     className="highlights-arrow highlights-arrow-next"
@@ -70,7 +71,7 @@ export function Highlights() {
                     aria-label="Próximo slide">
                     <img src={arrowIcon} alt="" />
                 </button>
-            </motion.div>
+            </div>
         </div>
     )
 }

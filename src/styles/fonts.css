@@ -1,17 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond');
 @import url('https://fonts.googleapis.com/css2?family=Manrope');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&display=swap');
 
-.cormorant-x-lg{
-  font-family: "Cormorant Garamond";
-  font-size: 60px;
-  font-weight: 700; 
-}
-
-.cormorant-lg{
-  font-family: "Cormorant Garamond";
-  font-size: 50px;
-  font-weight: 600; 
+.title-lg {
+    font-family: var(--font-title);
+    font-size: var(--title-lg);
+    font-weight: 600;
 }
 
 .cormorant-md{
@@ -28,7 +24,7 @@
 
 .dm-sans-lg{
   font-family: "DM Sans";
-  font-size: 30px;
+  font-size: 45px;
   font-weight: 700; 
 }
 
@@ -46,7 +42,7 @@
 
 .dm-sans-sm{
   font-family: "DM Sans";
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500; 
 }
 

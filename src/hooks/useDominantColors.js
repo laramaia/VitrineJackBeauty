@@ -1,39 +1,46 @@
 import { useEffect, useState } from 'react'
 import ColorThief from 'colorthief'
+import { buildPalette } from '../utils/colors'
 
-function soften([r, g, b], strength) {
-    const mix = (c) => Math.round(c * strength + 255 * (1 - strength))
-    return `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`
-}
-
-export function useDominantColors(sources, strength = 0.70) {
-    const [colors, setColors] = useState([])
+export function useDominantColors(sources = [], strength = 0.70) {
+    const [palettes, setPalettes] = useState([])
 
     useEffect(() => {
-        let cancelled = false
+        if (!sources || sources.length === 0) return
+
+        let isCancelled = false
         const thief = new ColorThief()
 
-        const loadColor = (src) =>
+        const loadPalette = (src) =>
             new Promise((resolve) => {
                 const img = new Image()
                 img.crossOrigin = 'anonymous'
                 img.src = src
+
                 img.onload = () => {
                     try {
-                        resolve(soften(thief.getColor(img), strength))
+                        const dominantColor = thief.getColor(img)
+                        resolve(buildPalette(dominantColor, strength))
                     } catch {
                         resolve(null)
                     }
                 }
-                img.onerror = () => resolve(null)
+
+                img.onerror = () => {
+                    resolve(null)
+                }
             })
 
-        Promise.all(sources.map(loadColor)).then((result) => {
-            if (!cancelled) setColors(result)
+        Promise.all(sources.map(loadPalette)).then((result) => {
+            if (!isCancelled) {
+                setPalettes(result)
+            }
         })
 
-        return () => { cancelled = true }
+        return () => {
+            isCancelled = true
+        }
     }, [sources, strength])
 
-    return colors
+    return palettes
 }
