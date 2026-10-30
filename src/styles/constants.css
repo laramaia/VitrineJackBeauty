@@ -4,4 +4,10 @@
     --color-accent: #DEB8A6;
     --color-text: #3A2A2E;
     --gradient-soft: linear-gradient(#F9E9EC, #F3D6DC);
+    --border-radius: 20px;
+    --grid-gap: 20px;
+    --section-gap: 30px;
+    --content-max-width: 1200px;
+    --shadow-card: 0 4px 12px rgba(58, 42, 46, 0.12);
+    --spacing-lg: 50px;
 }
