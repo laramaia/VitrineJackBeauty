@@ -3,7 +3,7 @@ import instagramIcon from '../../../assets/icons/instagram.png'
 import whatsappIcon from '../../../assets/icons/whatsapp.png'
 import helpIcon from '../../../assets/icons/help.png'
 import { SearchBar } from '../../products/SearchBar/SearchBar'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 export function Header(){
@@ -12,7 +12,9 @@ export function Header(){
 
     return(
         <header>
-            <img src={logo} alt="Logo Mundo da Jack Beauty" className="logo" />
+            <Link to="/">
+                <img src={logo} alt="Logo Mundo da Jack Beauty" className="logo" />
+            </Link>
 
             {isHome && <SearchBar />}
 
@@ -30,7 +32,9 @@ export function Header(){
                     </li>
                     <li>
                         <a href="https://www.instagram.com/mundodajack_beauty/" target='_blank'>
-                            <img src={helpIcon} alt="Instagram" className="icon" />
+                            <Link to="/faq">
+                                <img src={helpIcon} alt="Perguntas frequentes" className="icon" />
+                            </Link>
                         </a>
                     </li>
                 </ul>
