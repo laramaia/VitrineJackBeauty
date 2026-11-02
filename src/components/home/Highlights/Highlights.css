@@ -134,6 +134,10 @@
     font-size: var(--title-highlights);
     font-weight: 700;
     color: var(--slide-title, #3A2A2E);
+    max-width: 480px;      
+    word-break: break-word;  
+    overflow-wrap: break-word;
+    line-height: 1.2;     
 }
 
 .highlights-product-name {

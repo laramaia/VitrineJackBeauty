@@ -2,13 +2,31 @@ import arrowIcon from '../../../assets/icons/highlights-arrow.png'
 import { useDominantColors } from '../../../hooks/useDominantColors'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { mockHighlights as products } from '../../../mocks/Mockcategories'
+import { fetchSheets } from '../../../services/sheetsApi'
 import './Highlights.css'
 
-const images = products.map((product) => product.image)
-
 export function Highlights() {
+    const [products, setProducts] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function loadHighlights() {
+            try {
+                const allProducts = await fetchSheets()
+                const highlightedProducts = allProducts.filter(item => item.isHighlight)
+                setProducts(highlightedProducts.length > 0 ? highlightedProducts : allProducts.slice(0, 5))
+            } catch (error) {
+                console.error("Erro ao carregar destaques:", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadHighlights()
+    }, [])
+
+    const images = products.map((product) => product.image)
     const palettes = useDominantColors(images)
     const goToPrevious = () =>
         setCurrentIndex((prev) => (prev - 1 + products.length) % products.length)
@@ -16,11 +34,16 @@ export function Highlights() {
         setCurrentIndex((prev) => (prev + 1) % products.length)
 
     useEffect(() => {
+        if (products.length === 0) return
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % products.length)
         }, 5000)
         return () => clearInterval(timer)
-    }, [])
+    }, [products.length])
+
+    if (loading || products.length === 0) {
+        return <div className="highlights-carousel"><p>Carregando destaques...</p></div>
+    }
 
     const currentProduct = products[currentIndex]
     const palette = palettes[currentIndex]
@@ -33,7 +56,7 @@ export function Highlights() {
     }
 
     return (
-        <div className="highlights-carousel">
+        <div id="highlights" className="highlights-carousel">
             <div className="highlights-slide" style={slideStyle}>
                 <button
                     type="button"
@@ -58,7 +81,7 @@ export function Highlights() {
                     key={currentProduct.id}
                     className="highlights-image"
                     src={currentProduct.image}
-                    alt={currentProduct.name}
+                    alt={currentProduct.title}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}

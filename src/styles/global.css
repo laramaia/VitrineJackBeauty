@@ -52,7 +52,7 @@
     background-color: var(--color-background);
 }
 
-.layout-wrapper::before {
+.layout-wrapper.faq-background::before {
     content: "";
     position: fixed;
     inset: 0;
