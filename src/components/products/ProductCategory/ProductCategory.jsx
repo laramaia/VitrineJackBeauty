@@ -1,6 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { ProductGrid } from "../ProductGrid/ProductGrid";
+import { ProductModal } from "../ProductModal/ProductModal";
 import { fetchSheets } from "../../../services/sheetsApi";
 import "./ProductCategory.css";
 
@@ -9,8 +12,10 @@ let cachedProducts = null;
 export function ProductCategory() {
     const [categories, setCategories] = useState([]);
     const [activeId, setActiveId] = useState(null);
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
+
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -50,7 +55,7 @@ export function ProductCategory() {
                 setCategories(fixedCategories);
 
                 const categoryParam = new URLSearchParams(location.search).get("category");
-                
+
                 if (categoryParam) {
                     const matchedCategory = fixedCategories.find(
                         (c) => c.name.toLowerCase() === categoryParam.toLowerCase()
@@ -116,7 +121,22 @@ export function ProductCategory() {
                 </nav>
             </header>
 
-            {active && <ProductGrid key={active.id} products={filteredProducts} />}
+            {active && (
+                <ProductGrid
+                    key={active.id}
+                    products={filteredProducts}
+                    onSelect={setSelectedProduct}
+                />
+            )}
+
+            <AnimatePresence>
+                {selectedProduct && (
+                    <ProductModal
+                        product={selectedProduct}
+                        onClose={() => setSelectedProduct(null)}
+                    />
+                )}
+            </AnimatePresence>
         </section>
     );
 }

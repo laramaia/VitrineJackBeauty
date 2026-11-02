@@ -1,0 +1,133 @@
+.product-modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background-color: rgba(58, 42, 46, 0.32);
+}
+
+.product-modal-content {
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #FFF9F9;
+  box-shadow: var(--shadow-card);
+}
+
+.product-modal-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.product-modal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+
+  padding: 8px 0 4px;
+}
+
+.product-modal-brand {
+  color: var(--color-muted);
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.product-modal-title {
+  color: var(--color-text);
+  text-align: center;
+}
+
+.product-modal-price {
+  color: var(--color-text);
+}
+
+.product-modal-divider {
+  width: 75%;
+  height: 1px;
+  margin: 0 0 8px;
+  background-color: var(--color-text);
+}
+
+.product-modal-badge img {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+}
+
+.product-modal-button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.product-modal-description {
+  max-width: 330px;
+  margin: 12px 0;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.product-modal-question {
+  margin: 0 0 12px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.product-modal-actions {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-modal-button {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border: 1px solid #B8506A;
+  border-radius: 30px;
+
+  background-color: transparent;
+  color: #B8506A;
+
+  cursor: pointer;
+  font: inherit;
+  white-space: nowrap;
+}
+
+.product-modal-button[data-confirm] {
+  background-color: #B8506A;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.product-modal-button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
