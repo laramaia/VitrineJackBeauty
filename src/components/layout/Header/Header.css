@@ -5,6 +5,10 @@ header {
     padding: 1rem 3rem;
 }
 
+.main-header {
+    background-color: var(--color-surface);
+}
+
 header nav ul {
     list-style-type: none;
     display: flex;
