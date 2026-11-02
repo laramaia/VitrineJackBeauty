@@ -1,5 +1,6 @@
 import mainBanner from "../assets/mainBanner.png";
 import { Accordion } from "../components/accordion/Accordion";
+import { ContactCard } from "../components/contact/ContactCard";
 import { faqItems } from "../components/accordion/faqItems";
 
 export function Faq() {
@@ -18,6 +19,13 @@ export function Faq() {
             content={item.content}
           />
         ))}
+
+          <ContactCard
+            title="Não encontrou o que procurava?"
+            subtitle="Fale com a Jack, ela responde sua dúvida pelo WhatsApp."
+            buttonLabel="Chama no WhatsApp"
+            href="https://wa.me/5569992822919"
+          />
       </section>
     </main>
   );

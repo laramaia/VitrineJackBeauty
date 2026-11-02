@@ -11,7 +11,7 @@ export function Header(){
     const isHome = location.pathname === "/";
 
     return(
-        <header>
+        <header className="main-header">
             <Link to="/">
                 <img src={logo} alt="Logo Mundo da Jack Beauty" className="logo" />
             </Link>

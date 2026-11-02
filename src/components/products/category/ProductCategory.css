@@ -12,7 +12,8 @@
   flex-direction: column;
   align-items: center;
   gap: var(--grid-gap);
-  color: #6F4F45
+  color: #6F4F45;
+  background-color: \;
 }
 
 .product-category-nav {

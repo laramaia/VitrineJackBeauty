@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import gmailIcon from '../../../assets/icons/gmail.png'
 import instagramIcon from '../../../assets/icons/instagram.png'
 import whatsappIcon from '../../../assets/icons/whatsapp.png'
@@ -27,9 +28,11 @@ export function Footer(){
             <nav className="help">
                 <h3>Precisa de ajuda?</h3>
                 <ul>
-                    <li>Como comprar</li>
-                    <li>Formas de pagamento</li>
-                    <li>Entregas e prazos</li>
+                    <Link to="/faq" className='link-reset' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        <li>Como comprar</li>
+                        <li>Formas de pagamento</li>
+                        <li>Entregas e prazos</li>
+                    </Link>
                 </ul>
             </nav>
 
