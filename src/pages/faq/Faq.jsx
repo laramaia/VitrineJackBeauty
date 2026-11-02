@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { Accordion } from "../components/accordion/Accordion";
-import { ContactCard } from "../components/contact/ContactCard";
-import { faqItems } from "../components/accordion/faqItems";
+import { Accordion } from "../../components/accordion/Accordion";
+import { ContactCard } from "../../components/contact/ContactCard";
+import { faqItems } from "../../components/accordion/faqItems";
+import "./Faq.css";
+
 
 export function Faq() {
   return (

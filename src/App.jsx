@@ -1,7 +1,7 @@
 import { Layout } from "./components/layout/Layout";
 import { Home } from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
-import { Faq } from "./pages/Faq";
+import { Faq } from "./pages/faq/Faq";
 import "./styles/constants.css";
 import "./styles/global.css";
 import "./styles/fonts.css";
