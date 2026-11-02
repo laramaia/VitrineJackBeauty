@@ -1,6 +1,7 @@
-import { Highlights } from "../components/home/Highlights/Highlights";
-import { ProductCategory } from "../components/products/ProductCategory/ProductCategory";
-import { BenefitsBar } from "../components/home/BenefitsBar/BenefitsBar";
+import { Highlights } from "../../components/home/Highlights/Highlights";
+import { ProductCategory } from "../../components/products/ProductCategory/ProductCategory";
+import { BenefitsBar } from "../../components/home/BenefitsBar/BenefitsBar";
+import './Home.css'
 
 export function Home() {
   return (

@@ -40,7 +40,7 @@
 
 .contact-card-icon {
   width: auto;
-  height: var(--icon-size-s);
+  height: var(--icon-size-md);
 }
 
 .contact-card-button-label {

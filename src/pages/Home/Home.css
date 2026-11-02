@@ -1,0 +1,49 @@
+.main-banner {
+    position: relative;
+    height: clamp(450px, 60vh, 560px);
+    margin: 0 auto;
+    overflow: hidden;
+    background-image: 
+        linear-gradient(rgba(255, 158, 160, 0.3), rgba(255, 158, 160, 0.3)), 
+        url('../../assets/mainBanner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    box-sizing: border-box;
+    background-color: #FF9EA0;
+}
+
+.main-banner h1 {
+    font-family: var(--font-title);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: #ffffff;
+    width: 75%;
+    max-width: 1080px;
+    padding-left: 140px;
+    text-shadow: -6px 6px 10px #0000003b;
+}
+
+@media (max-width: 768px) {
+    .main-banner {
+        background-image: 
+            linear-gradient(rgba(255, 158, 160, 0.3), rgba(255, 158, 160, 0.3)), 
+            url('../../assets/banner_mobile2.png');
+        padding: 0 1rem;
+        height: auto; 
+        width: 100%;
+        aspect-ratio: 4 / 3; 
+        background-size: 100% 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .main-banner h1 {
+        padding-left: 60px;
+        width: 90%;
+        font-size: 1.5rem;
+    }
+}

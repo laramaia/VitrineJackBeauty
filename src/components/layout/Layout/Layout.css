@@ -1,0 +1,15 @@
+.layout-wrapper {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    background-color: var(--color-background);
+}
+
+.layout-wrapper.faq-background::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("../../assets/background.png") center / cover no-repeat;
+    pointer-events: none;
+}

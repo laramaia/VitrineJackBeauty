@@ -43,10 +43,6 @@
     background-image: url('../../../assets/images/highlights-decor-bottom.png');
 }
 
-.highlights-image {
-    z-index: 1;
-}
-
 .highlights-info {
     z-index: 2;
 }
@@ -58,7 +54,8 @@
     width: 45%;
     height: 100%;
     object-fit: cover;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0, 0, 0) 20%);
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%);
     mask-image: linear-gradient(to right, transparent 0%, black 20%);
 }
 
@@ -83,7 +80,7 @@
 .highlights-info h4 {
     display: inline-block;
     background-color: #ffffff;
-    padding: 0.25rem 0.9rem;  
+    padding: 0.25rem 0.9rem;
     border-radius: 30px;
     margin-bottom: 12px;
     font-weight: 400;
@@ -134,10 +131,10 @@
     font-size: var(--title-highlights);
     font-weight: 700;
     color: var(--slide-title, #3A2A2E);
-    max-width: 480px;      
-    word-break: break-word;  
+    max-width: 480px;
+    word-break: break-word;
     overflow-wrap: break-word;
-    line-height: 1.2;     
+    line-height: 1.2;
 }
 
 .highlights-product-name {
@@ -150,4 +147,49 @@
     font-size: var(--text-highlights);
     color: var(--slide-text, #f3f3f370);
     font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .highlights-carousel {
+        padding: 1rem;
+    }
+
+    .highlights-slide {
+        min-height: 420px;
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .highlights-info {
+        padding-right: 12rem;
+        max-width: 100%;
+        z-index: 3;
+    }
+
+    .highlights-product-name {
+        font-size: 20px;
+    }
+
+    .highlights-info h3 {
+        font-size: 20px;
+    }
+
+    .highlights-info p {
+        font-size: 14px;
+    }
+
+    .highlights-info button {
+        font-size: 16px;
+        padding: 8px 16px;
+        margin-top: 15px;
+    }
+
+    .highlights-product-name,
+    .highlights-info h3 {
+        font-size: 20px;
+        max-width: 100%;
+        word-break: break-word; 
+        overflow-wrap: break-word; 
+    }
 }

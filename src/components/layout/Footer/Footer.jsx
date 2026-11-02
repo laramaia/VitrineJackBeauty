@@ -1,26 +1,33 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import gmailIcon from '../../../assets/icons/gmail.png'
-import instagramIcon from '../../../assets/icons/instagram.png'
-import whatsappIcon from '../../../assets/icons/whatsapp.png'
-import './Footer.css'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import gmailIcon from '../../../assets/icons/gmail.png';
+import instagramIcon from '../../../assets/icons/instagram.png';
+import whatsappIcon from '../../../assets/icons/whatsapp.png';
+import './Footer.css';
 
 export function Footer() {
-    const location = useLocation();
     const navigate = useNavigate();
+    const location = useLocation();
 
-    const handleSectionClick = (e, targetId, categoryName = null) => {
+    const handleCategoryClick = (e, categoryName) => {
         e.preventDefault();
-
-        const queryParam = categoryName ? `?category=${encodeURIComponent(categoryName)}` : '';
-        // Sempre aponta para a raiz "/" (Home), funcionando tanto na Home quanto no FAQ
-        const targetUrl = `/${queryParam}#${targetId}`;
+        navigate(`/?category=${encodeURIComponent(categoryName)}#products`);
         
-        navigate(targetUrl);
+        if (location.pathname === "/") {
+            const element = document.getElementById("products");
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
 
+    const handleSectionClick = (e, targetId) => {
+        e.preventDefault();
+        navigate(`/#${targetId}`);
+        
         if (location.pathname === "/") {
             const element = document.getElementById(targetId);
             if (element) {
-                element.scrollIntoView({ behavior: "auto" });
+                element.scrollIntoView({ behavior: "smooth" });
             }
         }
     };
@@ -52,17 +59,17 @@ export function Footer() {
                 <h3>Explore por categoria</h3>
                 <ul>
                     <li>
-                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products", "Maquiagem")}>
+                        <a href="#products" className="link-reset" onClick={(e) => handleCategoryClick(e, "Maquiagem")}>
                             Maquiagem
                         </a>
                     </li>
                     <li>
-                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products", "Skincare")}>
+                        <a href="#products" className="link-reset" onClick={(e) => handleCategoryClick(e, "Skincare")}>
                             Skincare
                         </a>
                     </li>
                     <li>
-                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products", "Banho & Corpo")}>
+                        <a href="#products" className="link-reset" onClick={(e) => handleCategoryClick(e, "Banho & Corpo")}>
                             Banho & Corpo
                         </a>
                     </li>
@@ -72,8 +79,7 @@ export function Footer() {
             <nav className="help">
                 <h3>Precisa de ajuda?</h3>
                 <ul>
-                    <Link to="/faq" className="link-reset" onClick={() =>
-                        window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <Link to="/faq" className="link-reset" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         <li>Como comprar</li>
                         <li>Formas de pagamento</li>
                         <li>Entregas e prazos</li>
@@ -93,7 +99,7 @@ export function Footer() {
                         <span>@mundojack_beauty</span>
                     </li>
                     <li>
-                        <img src={whatsappIcon} alt="Gmail" className="icon" />
+                        <img src={whatsappIcon} alt="WhatsApp" className="icon" />
                         <span>(69) 99282-2919</span>
                     </li>
                 </ul>
@@ -101,5 +107,5 @@ export function Footer() {
 
             <p>© 2026 Mundo da Jack. Todos os direitos reservados.</p>
         </footer>
-    )
+    );
 }

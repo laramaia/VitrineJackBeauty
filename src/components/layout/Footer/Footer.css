@@ -23,8 +23,8 @@ footer nav.contacts ul li {
 }
 
 footer .icon {
-    width: var(--icon-size-s);
-    height: var(--icon-size-s);
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
 }
 
 footer p {

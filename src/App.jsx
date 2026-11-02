@@ -1,5 +1,5 @@
-import { Layout } from "./components/layout/Layout";
-import { Home } from "./pages/Home";
+import { Layout } from "./components/layout/Layout/Layout";
+import { Home } from "./pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import { Faq } from "./pages/faq/Faq";
 import "./styles/constants.css";

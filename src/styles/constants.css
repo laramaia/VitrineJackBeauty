@@ -6,11 +6,12 @@
     --font-highlights-text: "DynaPuff", cursive; 
     --text-highlights: 20px; 
     --title-highlights: 45px;
-    --text-sm: 0.9rem;  
-    --text-m: 60px;                            
+    --text-sm: 0.9rem;
+    --text-md: 1.3rem;                           
     --text-lg: 75px; 
 
-    --icon-size-s: 24px;
+    --icon-size-sm: 20px;
+    --icon-size-md: 24px;
     --icon-size-m: 32px;
     --color-accent: #DEB8A6;
     --color-text: #3A2A2E;

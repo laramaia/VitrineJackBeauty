@@ -59,8 +59,8 @@
 }
 
 .product-grid-arrow-icon {
-  width: var(--icon-size-s);
-  height: var(--icon-size-s);
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
 }
 
 .product-grid-arrow[data-direction="next"] .product-grid-arrow-icon {

@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion"; 
 import { ProductGrid } from "../ProductGrid/ProductGrid";
 import { ProductModal } from "../ProductModal/ProductModal";
 import { fetchSheets } from "../../../services/sheetsApi";
@@ -11,13 +10,12 @@ let cachedProducts = null;
 
 export function ProductCategory() {
     const [categories, setCategories] = useState([]);
-    const [activeId, setActiveId] = useState(null);
-    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [activeId, setActiveId] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const location = useLocation();
-    const navigate = useNavigate();
 
     useEffect(() => {
         function handleSearch(e) {
@@ -54,7 +52,8 @@ export function ProductCategory() {
 
                 setCategories(fixedCategories);
 
-                const categoryParam = new URLSearchParams(location.search).get("category");
+                const params = new URLSearchParams(location.search);
+                const categoryParam = params.get("category");
 
                 if (categoryParam) {
                     const matchedCategory = fixedCategories.find(
@@ -64,11 +63,16 @@ export function ProductCategory() {
                     if (matchedCategory) {
                         setActiveId(matchedCategory.id);
                     } else {
-                        setActiveId(fixedCategories[0].id);
+                        setActiveId(1);
                     }
-                    navigate(location.pathname + (location.hash ? location.hash.split("?")[0] : ""), { replace: true });
+                    setTimeout(() => {
+                        const element = document.getElementById("products");
+                        if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }, 100);
                 } else {
-                    setActiveId(fixedCategories[0].id);
+                    setActiveId(1);
                 }
 
             } catch (error) {
@@ -79,18 +83,7 @@ export function ProductCategory() {
         }
 
         loadCategories();
-    }, [location.search, navigate, location.pathname, location.hash]);
-
-    useEffect(() => {
-        if (!loading && location.search.includes("category")) {
-            setTimeout(() => {
-                const element = document.getElementById("products");
-                if (element) {
-                    element.scrollIntoView({ behavior: "auto" });
-                }
-            }, 50);
-        }
-    }, [loading, location.search]);
+    }, [location.search]);
 
     if (loading || categories.length === 0) {
         return <section className="product-category-wrapper"><p>Carregando produtos...</p></section>;
