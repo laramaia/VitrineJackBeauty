@@ -31,11 +31,9 @@ export function Header(){
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/mundodajack_beauty/" target='_blank'>
-                            <Link to="/faq">
-                                <img src={helpIcon} alt="Perguntas frequentes" className="icon" />
-                            </Link>
-                        </a>
+                        <Link to="/faq">
+                            <img src={helpIcon} alt="Perguntas frequentes" className="icon" />
+                        </Link>
                     </li>
                 </ul>
             </nav>
