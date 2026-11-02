@@ -1,10 +1,14 @@
-import { Footer } from './Footer/Footer'
 import { Header } from './Header/Header'
-import { Outlet } from 'react-router-dom'
+import { Footer } from './Footer/Footer'
+import { Outlet, useLocation } from 'react-router-dom'
+import '../../styles/global.css'
 
 export function Layout(){
+    const location = useLocation();
+    const isFaqPage = location.pathname === "/faq";
+
     return(
-        <div className="layout-wrapper">
+        <div className={`layout-wrapper ${isFaqPage ? "faq-background" : ""}`}>
             <Header />
             <Outlet />
             <Footer />

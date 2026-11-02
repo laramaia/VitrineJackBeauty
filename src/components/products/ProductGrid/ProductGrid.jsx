@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ProductCard } from "../card/ProductCard";
+import { ProductCard } from "../ProductCard/ProductCard";
 import arrowIcon from "../../../assets/icons/highlights-arrow.png";
 import "./ProductGrid.css";
 

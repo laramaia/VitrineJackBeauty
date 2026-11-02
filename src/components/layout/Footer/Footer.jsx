@@ -8,16 +8,20 @@ export function Footer() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleSectionClick = (e, targetId) => {
+    const handleSectionClick = (e, targetId, categoryName = null) => {
         e.preventDefault();
+
+        const queryParam = categoryName ? `?category=${encodeURIComponent(categoryName)}` : '';
+        // Sempre aponta para a raiz "/" (Home), funcionando tanto na Home quanto no FAQ
+        const targetUrl = `/${queryParam}#${targetId}`;
+        
+        navigate(targetUrl);
 
         if (location.pathname === "/") {
             const element = document.getElementById(targetId);
             if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
+                element.scrollIntoView({ behavior: "auto" });
             }
-        } else {
-            navigate(`/#${targetId}`);
         }
     };
 
@@ -48,17 +52,17 @@ export function Footer() {
                 <h3>Explore por categoria</h3>
                 <ul>
                     <li>
-                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products")}>
+                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products", "Maquiagem")}>
                             Maquiagem
                         </a>
                     </li>
                     <li>
-                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products")}>
+                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products", "Skincare")}>
                             Skincare
                         </a>
                     </li>
                     <li>
-                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products")}>
+                        <a href="#products" className="link-reset" onClick={(e) => handleSectionClick(e, "products", "Banho & Corpo")}>
                             Banho & Corpo
                         </a>
                     </li>
