@@ -1,7 +1,6 @@
 import { Highlights } from "../components/home/Highlights/Highlights";
 import { ProductCategory } from "../components/products/category/ProductCategory";
 import { BenefitsBar } from "../components/home/BenefitsBar/BenefitsBar";
-import { mockCategories, mockHighlights } from "../mocks/Mockcategories";
 
 export function Home() {
   return (
@@ -11,8 +10,8 @@ export function Home() {
       </div>
 
       <BenefitsBar />
-      <Highlights products={mockHighlights} />
-      <ProductCategory categories={mockCategories} />
+      <Highlights />
+      <ProductCategory />
     </main>
   );
 }
