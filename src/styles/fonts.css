@@ -10,6 +10,12 @@
     font-weight: 600;
 }
 
+.cormorant-x-lg{
+  font-family: "Cormorant Garamond";
+  font-size: 60px;
+  font-weight: 600; 
+}
+
 .cormorant-x-md{
   font-family: "Cormorant Garamond";
   font-size: 30px;
