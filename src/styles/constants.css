@@ -1,4 +1,15 @@
 :root {
+    /* Fonts */
+    --font-title: "Cormorant Garamond", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-highlights-title: "Sour Gummy", sans-serif;
+    --font-highlights-text: "DynaPuff", cursive; 
+    --text-highlights: 20px; 
+    --title-highlights: 45px;
+    --text-sm: 1.2rem;  
+    --text-m: 60px;                            
+    --text-lg: 75px; 
+
     --icon-size-s: 24px;
     --icon-size-m: 32px;
     --color-accent: #DEB8A6;

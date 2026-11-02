@@ -1,4 +1,4 @@
-import bodySplashImg from "../assets/images/body-splash-maracuja.jpg";
+import bodySplashImg from "../assets/images/bodysplash.png";
 import lipGlossImg from "../assets/images/lip-gloss-one.jpg";
 import paletteImg from "../assets/images/paleta-pastel.jpg";
 import lipFruitImg from "../assets/images/lip-fruit.jpg";
@@ -46,3 +46,5 @@ export const mockCategories = [
     ),
   },
 ];
+
+export const mockHighlights = [lipFruit(901), bodySplash(902), palette(903)]
