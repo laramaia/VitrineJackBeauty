@@ -31,7 +31,7 @@ function ArrowButton({ direction, disabled, hidden, onClick }) {
   );
 }
 
-export function ProductGrid({ products }) {
+export function ProductGrid({ products, onSelect }) {
   const [page, setPage] = useState(0);
   const pages = toPages(products, 8);
   const lastPage = pages.length - 1;
@@ -59,7 +59,11 @@ export function ProductGrid({ products }) {
             {pages.map((items, index) => (
               <div className="product-grid-page" key={index}>
                 {items.map((product) => (
-                  <ProductCard key={product.id} {...product} />
+                  <ProductCard
+                    key={product.id}
+                    {...product}
+                    onSelect={onSelect}
+                  />
                 ))}
               </div>
             ))}

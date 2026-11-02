@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import { ProductGrid } from "../grid/ProductGrid";
+import { ProductModal } from "../modal/ProductModal";
 import "./ProductCategory.css";
 
 export function ProductCategory({ categories }) {
   const [activeId, setActiveId] = useState(categories[0]?.id);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const active = categories.find((c) => c.id === activeId);
 
   return (
@@ -25,7 +29,22 @@ export function ProductCategory({ categories }) {
         </nav>
       </header>
 
-      {active && <ProductGrid key={active.id} products={active.products} />}
+      {active && (
+        <ProductGrid
+          key={active.id}
+          products={active.products}
+          onSelect={setSelectedProduct}
+        />
+      )}
+
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductModal
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
