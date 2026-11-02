@@ -3,6 +3,7 @@
     --icon-size-m: 32px;
     --color-accent: #DEB8A6;
     --color-text: #3A2A2E;
+    --color-surface: #FFFFFF;
     --gradient-soft: linear-gradient(#F9E9EC, #F3D6DC);
     --border-radius: 20px;
     --grid-gap: 20px;
@@ -10,4 +11,6 @@
     --content-max-width: 1200px;
     --shadow-card: 0 4px 12px rgba(58, 42, 46, 0.12);
     --spacing-lg: 50px;
+    --card-padding-y: 20px;
+    --card-padding-x: 30px;
 }
