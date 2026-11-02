@@ -10,12 +10,11 @@ export function Highlights() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [loading, setLoading] = useState(true)
 
-    // Busca os produtos da planilha ao montar o componente
     useEffect(() => {
         async function loadHighlights() {
             try {
                 const allProducts = await fetchSheets()
-                const highlightedProducts = allProducts.filter(item => item.destaque)
+                const highlightedProducts = allProducts.filter(item => item.isHighlight)
                 setProducts(highlightedProducts.length > 0 ? highlightedProducts : allProducts.slice(0, 5))
             } catch (error) {
                 console.error("Erro ao carregar destaques:", error)
@@ -27,10 +26,8 @@ export function Highlights() {
         loadHighlights()
     }, [])
 
-    // Mapeia as imagens dos produtos vindos da planilha para extrair as cores
-    const images = products.map((product) => product.imagem)
+    const images = products.map((product) => product.image)
     const palettes = useDominantColors(images)
-
     const goToPrevious = () =>
         setCurrentIndex((prev) => (prev - 1 + products.length) % products.length)
     const goToNext = () =>
@@ -44,7 +41,6 @@ export function Highlights() {
         return () => clearInterval(timer)
     }, [products.length])
 
-    // Enquanto os dados da planilha estiverem carregando
     if (loading || products.length === 0) {
         return <div className="highlights-carousel"><p>Carregando destaques...</p></div>
     }
@@ -74,7 +70,7 @@ export function Highlights() {
                     <div className="highlights-description">
                         <h4>Lançamento</h4>
                         <h3>
-                            <span className="highlights-product-name">{currentProduct.nome}</span> chegou!
+                            <span className="highlights-product-name">{currentProduct.title}</span> chegou!
                         </h3>
                         <p>Realce a sua beleza todos os dias</p>
                     </div>
@@ -84,8 +80,8 @@ export function Highlights() {
                 <motion.img
                     key={currentProduct.id}
                     className="highlights-image"
-                    src={currentProduct.imagem}
-                    alt={currentProduct.nome}
+                    src={currentProduct.image}
+                    alt={currentProduct.title}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}

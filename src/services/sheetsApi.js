@@ -27,9 +27,12 @@ export async function fetchSheets() {
 
         return data.map((item, index) => ({
             id: index + 1,
-            nome: item.nome || "",
-            imagem: formatDriveImageLink(item.imagem),
-            destaque: item.destaque?.toLowerCase() === "sim"
+            title: item.nome || "",
+            brand: item.marca || "",
+            price: Number(item.preco?.replace(",", ".")) || 0,
+            image: formatDriveImageLink(item.imagem),
+            category: item.categoria?.trim() || "Outros",
+            isHighlight: item.destaque?.toLowerCase() === "sim",
         }));
 
     } catch (error) {
