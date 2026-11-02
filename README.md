@@ -36,8 +36,8 @@ src/
 ## Status
 Em desenvolvimento.
 - [x] Design no Figma (desktop e mobile)
-- [ ] Páginas e componentes
-- [ ] Integração com a planilha
+- [x] Páginas e componentes
+- [x] Integração com a planilha
 - [ ] Publicação
 
 ## Autores
