@@ -33,7 +33,7 @@ export function Highlights() {
     }
 
     return (
-        <div className="highlights-carousel">
+        <div id="highlights" className="highlights-carousel">
             <div className="highlights-slide" style={slideStyle}>
                 <button
                     type="button"

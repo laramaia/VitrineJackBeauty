@@ -7,7 +7,7 @@ export function ProductCategory({ categories }) {
   const active = categories.find((c) => c.id === activeId);
 
   return (
-    <section className="product-category-wrapper">
+    <section id="products" className="product-category-wrapper">
       <header className="product-category-header">
         <h2 className="dm-sans-lg">Todos os Produtos</h2>
 
