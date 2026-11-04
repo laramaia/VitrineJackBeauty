@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 import { fetchSheets } from '../../../services/sheetsApi'
 import './Highlights.css'
 
+const WHATSAPP_NUMBER = "5569992822919";
+
 export function Highlights() {
     const [products, setProducts] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -55,6 +57,12 @@ export function Highlights() {
         '--slide-button-text': palette.buttonText,
     }
 
+    function handleRedirect() {
+        const message = `Olá, Jack! Tenho interesse no produto *${currentProduct.title}*. Podemos agendar uma encomenda?`;
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+    }
+
     return (
         <div id="highlights" className="highlights-carousel">
             <div className="highlights-slide" style={slideStyle}>
@@ -74,7 +82,7 @@ export function Highlights() {
                         </h3>
                         <p>Realce a sua beleza todos os dias</p>
                     </div>
-                    <button>Quero conhecer</button>
+                    <button onClick={handleRedirect}>Quero conhecer</button>
                 </div>
 
                 <motion.img
