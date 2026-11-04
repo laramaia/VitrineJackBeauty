@@ -36,3 +36,50 @@ footer p {
     border-top: 1px solid #E8C9D0;
     padding-top: 0.8rem;
 }
+
+@media (max-width: 768px) {
+    footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem 1.5rem; 
+        padding: 2rem 1.5rem 0.9rem 3rem; 
+        align-items: start;
+    }
+
+    footer nav {
+        width: 100%;
+        min-width: auto;
+    }
+
+    footer nav h3 {
+        text-align: left;
+        font-size: 0.75rem;
+    }
+
+    footer nav ul {
+        text-align: left;
+        font-size: 0.7rem;
+    }
+
+    footer nav.contacts ul li {
+        gap: 0.2rem;
+        align-items: center;
+    }
+
+    footer nav.contacts ul li span,
+    footer nav.contacts ul li a {
+        font-size: 0.7rem;
+    }
+
+    footer p {
+        grid-column: span 2;
+        margin-top: 0;
+        font-size: 0.65rem;
+        text-align: center;
+    }
+
+    footer .icon {
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
+    }
+}

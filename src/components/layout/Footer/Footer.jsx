@@ -92,7 +92,7 @@ export function Footer() {
                 <ul>
                     <li>
                         <img src={gmailIcon} alt="Gmail" className="icon" />
-                        <span>Jaquelinequaresma.r@gmail.com</span>
+                        <span>mundojackbeauty@gmail.com</span>
                     </li>
                     <li>
                         <img src={instagramIcon} alt="Instagram" className="icon" />

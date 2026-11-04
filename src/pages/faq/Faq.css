@@ -8,7 +8,7 @@
     height: clamp(240px, 30vh, 340px);
     padding-inline: var(--section-gap);
     background-color: #E8A9AA;
-    background-image: url("../assets/banner-faq.png");
+    background-image: url("../../assets/banner-faq.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
