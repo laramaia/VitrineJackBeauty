@@ -8,7 +8,7 @@ export function Faq() {
   return (
     <main>
       <header className="faq-banner-wrapper">
-        <nav className="faq-banner-breadcrumb manrope-md" aria-label="Você está em">
+        <div className="faq-banner-breadcrumb manrope-md" aria-label="Você está em">
           <Link to="/" className="link-reset">
             Início
           </Link>
@@ -16,7 +16,7 @@ export function Faq() {
           <span className="faq-banner-current" aria-current="page">
             Dúvidas frequentes
           </span>
-        </nav>
+        </div>
 
         <h1 className="faq-banner-title cormorant-x-lg">Dúvidas frequentes</h1>
 
