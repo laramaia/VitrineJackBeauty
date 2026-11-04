@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion"; 
-import { ProductGrid } from "../ProductGrid/ProductGrid";
+import { ProductGrid } from "../ProductGrid/ProductGrid"
 import { ProductModal } from "../ProductModal/ProductModal";
 import { fetchSheets } from "../../../services/sheetsApi";
 import "./ProductCategory.css";

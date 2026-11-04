@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ProductCard } from "../ProductCard/ProductCard";
 import arrowIcon from "../../../assets/icons/highlights-arrow.png";
@@ -10,6 +10,20 @@ function toPages(list, size) {
     pages.push(list.slice(i, i + size));
   }
   return pages;
+}
+
+function useColumns() {
+  const get = () => (window.innerWidth >= 1024 ? 4 : 3);
+
+  const [cols, setCols] = useState(get);
+
+  useEffect(() => {
+    const onResize = () => setCols(get());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return cols;
 }
 
 function ArrowButton({ direction, disabled, hidden, onClick }) {
@@ -26,26 +40,40 @@ function ArrowButton({ direction, disabled, hidden, onClick }) {
       whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.9 }}
     >
-      <img className="product-grid-arrow-icon" src={arrowIcon} />
+      <img className="product-grid-arrow-icon" src={arrowIcon} alt="" />
     </motion.button>
   );
 }
 
 export function ProductGrid({ products, onSelect }) {
   const [page, setPage] = useState(0);
-  const pages = toPages(products, 8);
-  const lastPage = pages.length - 1;
+  const cols = useColumns();
+  const rows = 2;
+  const pages = toPages(products, cols * rows);
+  const lastPage = Math.max(pages.length - 1, 0);
+  const safePage = Math.min(page, lastPage);
   const hasMultiplePages = pages.length > 1;
 
-  const go = (delta) => setPage((p) => p + delta);
+  const go = (delta) => setPage(safePage + delta);
+
+  if (products.length === 0) {
+    return (
+      <section className="product-grid-wrapper">
+        <p className="manrope-md">Nenhum produto encontrado.</p>
+      </section>
+    );
+  }
 
   return (
-    <section className="product-grid-wrapper">
+    <section
+      className="product-grid-wrapper"
+      style={{ "--cols": cols, "--rows": rows }}
+    >
       <div className="product-grid-stage">
         <ArrowButton
           direction="prev"
           hidden={!hasMultiplePages}
-          disabled={page === 0}
+          disabled={safePage === 0}
           onClick={() => go(-1)}
         />
 
@@ -53,8 +81,15 @@ export function ProductGrid({ products, onSelect }) {
           <motion.div
             className="product-grid-track"
             initial={false}
-            animate={{ x: `${-page * 100}%` }}
+            animate={{ x: `${-safePage * 100}%` }}
             transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -50 && safePage < lastPage) go(1);
+              if (info.offset.x > 50 && safePage > 0) go(-1);
+            }}
           >
             {pages.map((items, index) => (
               <div className="product-grid-page" key={index}>
@@ -73,7 +108,7 @@ export function ProductGrid({ products, onSelect }) {
         <ArrowButton
           direction="next"
           hidden={!hasMultiplePages}
-          disabled={page === lastPage}
+          disabled={safePage === lastPage}
           onClick={() => go(1)}
         />
       </div>
@@ -84,9 +119,9 @@ export function ProductGrid({ products, onSelect }) {
             key={index}
             className="product-grid-dot"
             onClick={() => setPage(index)}
-            aria-current={index === page}
+            aria-current={index === safePage}
             aria-label={`Ir para a página ${index + 1}`}
-            animate={{ scale: index === page ? 1.3 : 1 }}
+            animate={{ scale: index === safePage ? 1.3 : 1 }}
             whileHover={{ scale: 1.4 }}
           />
         ))}

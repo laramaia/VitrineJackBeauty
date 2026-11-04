@@ -16,7 +16,7 @@ export function ProductCard({ id, title, brand, price, image, onSelect }) {
         onClick={() => onSelect(product)}
         aria-label={`Selecionar ${title}, ${price}`}
       >
-        <img className="product-card-image" src={image} alt={title} />
+        <img className="product-card-image" src={image} alt={title} loading="lazy" />
 
         <div className="product-card-info">
           <h3 className="dm-sans-md">{title}</h3>

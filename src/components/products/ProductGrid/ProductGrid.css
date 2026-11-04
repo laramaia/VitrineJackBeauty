@@ -36,8 +36,8 @@
   flex: 0 0 100%;
   padding: var(--shadow-room);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(var(--cols, 4), 1fr);
+  grid-template-rows: repeat(var(--rows, 2), 1fr);
   align-content: start;
   gap: var(--grid-gap);
 }
@@ -85,4 +85,23 @@
 
 .product-grid-dot[aria-current="true"] {
   background: var(--color-text);
+}
+
+@media (max-width: 639px) {
+  .product-grid-wrapper {
+    --grid-gap: 8px;
+  }
+
+  .product-grid-stage {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .product-grid-arrow {
+    display: none;
+  }
+
+  .product-grid-viewport {
+    --shadow-room: 6px;
+  }
 }

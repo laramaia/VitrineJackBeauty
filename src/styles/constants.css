@@ -7,7 +7,7 @@
     --text-highlights: 20px; 
     --title-highlights: 45px;
     --text-sm: 0.9rem;
-    --text-md: 1.3rem;                           
+    --text-md: 1.3rem;
     --text-lg: 75px; 
 
     --icon-size-sm: 20px;
@@ -16,6 +16,7 @@
     --color-accent: #DEB8A6;
     --color-text: #3A2A2E;
     --color-surface: #FFFFFF;
+    --color-muted: #8A7A7E;
     --gradient-soft: linear-gradient(#F9E9EC, #F3D6DC);
     --border-radius: 20px;
     --grid-gap: 20px;
