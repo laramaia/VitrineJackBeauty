@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion"; 
-import { ProductGrid } from "../ProductGrid/ProductGrid";
+import { ProductGrid } from "../ProductGrid/ProductGrid"
 import { ProductModal } from "../ProductModal/ProductModal";
 import { fetchSheets } from "../../../services/sheetsApi";
 import "./ProductCategory.css";
@@ -14,8 +14,27 @@ export function ProductCategory() {
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [fade, setFade] = useState({ left: false, right: false });
 
     const location = useLocation();
+    const navRef = useRef(null);
+
+    function updateFade() {
+    const el = navRef.current;
+    if (!el) return;
+    const left = el.scrollLeft > 4;
+    const right = el.scrollLeft + el.clientWidth < el.scrollWidth - 4;
+    setFade((prev) =>
+        prev.left === left && prev.right === right ? prev : { left, right }
+    );
+    }
+
+    useEffect(() => {
+    updateFade();
+    window.addEventListener("resize", updateFade);
+    return () => window.removeEventListener("resize", updateFade);
+    }, [categories]);
+
 
     useEffect(() => {
         function handleSearch(e) {
@@ -101,7 +120,13 @@ export function ProductCategory() {
             <header className="product-category-header">
                 <h2 className="dm-sans-lg">Todos os Produtos</h2>
 
-                <nav className="product-category-nav">
+                <nav
+                ref={navRef}
+                onScroll={updateFade}
+                className="product-category-nav"
+                data-fade-left={fade.left}
+                data-fade-right={fade.right}
+                >
                     {categories.map((category) => (
                         <button
                             key={category.id}

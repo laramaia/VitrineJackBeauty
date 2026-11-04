@@ -5,6 +5,8 @@
   align-items: center;
   gap: var(--section-gap);
   margin-bottom: var(--spacing-lg);
+  box-sizing: border-box;
+  padding-inline: 16px;
 }
 
 .product-category-header {
@@ -13,7 +15,12 @@
   align-items: center;
   gap: var(--grid-gap);
   color: #6F4F45;
-  background-color: \;
+}
+
+.product-category-header h2 {
+  text-align: center;
+  font-size: clamp(24px, 7vw, 45px);
+  margin: 0;
 }
 
 .product-category-nav {
@@ -31,7 +38,15 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   cursor: pointer;
-  color: #6F4F45
+  color: #6F4F45;
+}
+
+.product-category-item { min-width: 80px; }
+
+.product-category-nav .product-category-item {
+  font-size: clamp(13px, 3.2vw, 15px);
+  letter-spacing: 0.04em;
+  padding: 0 4px 6px;
 }
 
 .product-category-item::after {
@@ -51,12 +66,60 @@
   transform: scaleX(1);
 }
 
-.product-card-wrapper:hover {
-  transform: translateY(2px) scale(0.99);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+@media (max-width: 639px) {
+  .product-category-nav {
+    gap: 8px 14px;
+  }
+
+    .product-category-header {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .product-category-nav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .product-category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-category-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+    .product-category-nav[data-fade-right="true"] {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  }
+
+  .product-category-nav[data-fade-left="true"] {
+    -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(to left, #000 calc(100% - 40px), transparent);
+  }
+
+  .product-category-nav[data-fade-left="true"][data-fade-right="true"] {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 40px,
+      #000 calc(100% - 40px),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 40px,
+      #000 calc(100% - 40px),
+      transparent
+    );
+  }
 }
 
-.product-card-wrapper:active {
-  transform: translateY(4px) scale(0.97);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}

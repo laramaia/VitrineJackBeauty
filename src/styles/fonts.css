@@ -10,6 +10,12 @@
     font-weight: 600;
 }
 
+.dm-sans-lg {
+  font-family: "DM Sans";
+  font-size: clamp(28px, 5vw, 45px);
+  font-weight: 700;
+} 
+
 .cormorant-x-lg{
   font-family: "Cormorant Garamond";
   font-size: 60px;
