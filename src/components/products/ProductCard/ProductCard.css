@@ -83,4 +83,56 @@
     padding: 6px;
     gap: 2px;
   }
+  
+  .product-card-wrapper {
+    box-shadow: 0 4px 6px rgba(58, 42, 46, 0.1);
+    transition: none;
+  }
+ 
+  .product-card-wrapper:active {
+    transform: translateY(4px) scale(0.97);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .product-card-wrapper {
+    aspect-ratio: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(58, 42, 46, 0.1);
+    transition: none;
+  }
+
+  .product-card-image {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .product-card-info {
+    flex: none;
+    height: 64px;
+    box-sizing: border-box;
+    padding: 4px;
+    gap: 1px;
+    overflow: hidden;
+  }
+
+  .product-card-info h3 {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .product-card-brand {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .product-card-info p.manrope-md {
+    font-size: 12px;
+  }
 }

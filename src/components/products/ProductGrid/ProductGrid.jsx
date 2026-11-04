@@ -77,19 +77,21 @@ export function ProductGrid({ products, onSelect }) {
           onClick={() => go(-1)}
         />
 
-        <div className="product-grid-viewport">
+      <div className="product-grid-viewport">
+        <motion.div
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
+          onDragEnd={(_, info) => {
+            if (info.offset.x < -50 && safePage < lastPage) go(1);
+            if (info.offset.x > 50 && safePage > 0) go(-1);
+          }}
+        >
           <motion.div
             className="product-grid-track"
             initial={false}
             animate={{ x: `${-safePage * 100}%` }}
             transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(_, info) => {
-              if (info.offset.x < -50 && safePage < lastPage) go(1);
-              if (info.offset.x > 50 && safePage > 0) go(-1);
-            }}
           >
             {pages.map((items, index) => (
               <div className="product-grid-page" key={index}>
@@ -103,7 +105,8 @@ export function ProductGrid({ products, onSelect }) {
               </div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
+      </div>
 
         <ArrowButton
           direction="next"

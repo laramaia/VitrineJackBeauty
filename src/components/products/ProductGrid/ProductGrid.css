@@ -27,8 +27,13 @@
   margin: calc(var(--shadow-room) * -1);
 }
 
+.product-grid-viewport > div {
+  touch-action: pan-y;
+}
+
 .product-grid-track {
   display: flex;
+  will-change: transform;
 }
 
 .product-grid-page {
@@ -70,6 +75,7 @@
 .product-grid-dots {
   display: flex;
   gap: 10px;
+  margin-top: 16px;
 }
 
 .product-grid-dot {
