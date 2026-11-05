@@ -20,6 +20,11 @@
     color: var(--color-text);
 }
 
+.benefits-item img {
+        width: 70px;
+        height: 70px;
+    }
+
 @media (max-width: 768px) {
     .benefits-bar {
         gap: 10px;
