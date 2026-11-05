@@ -38,7 +38,7 @@ Em desenvolvimento.
 - [x] Design no Figma (desktop e mobile)
 - [x] Páginas e componentes
 - [x] Integração com a planilha
-- [ ] Publicação
+- [x] Publicação
 
 ## Autores
 **José Fernando Brito Costa** · jfbritocosta@gmail.com  
