@@ -53,6 +53,6 @@ A taxa é confirmada no momento do pedido.`,
     title: "Qual o horário de atendimento?",
     subtitle: "Dias e horários para falar com a Jack.",
     content:
-      "A Jack atende pelo WhatsApp [PREENCHER: dias e horários]. Mensagens enviadas fora do horário são respondidas assim que possível.",
+      "A Jack atende pelo WhatsApp das 8h às 18h. Mensagens enviadas fora desse horário são respondidas assim que possível.",
   },
 ];
