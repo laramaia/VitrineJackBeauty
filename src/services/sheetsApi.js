@@ -33,7 +33,8 @@ export async function fetchSheets() {
             image: formatDriveImageLink(item.imagem),
             category: item.categoria?.trim() || "Outros",
             isHighlight: item.destaque?.toLowerCase() === "sim",
-        }));
+            soldOut: item.esgotado?.toLowerCase() === "sim",
+        })).filter((product) => !product.soldOut);
 
     } catch (error) {
         console.error("Erro ao buscar produtos:", error);
